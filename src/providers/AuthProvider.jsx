@@ -5,6 +5,7 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   signInWithPopup,
+  updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
@@ -17,23 +18,20 @@ const AuthProvider = ({ children }) => {
   const provider = new GoogleAuthProvider();
 
   const createUser = (email, password) => {
-    return createUserWithEmailAndPassword(email, password, auth);
+    return createUserWithEmailAndPassword(auth, email, password)
   };
 
   const logIn = (email, password) => {
-    return signInWithEmailAndPassword(email, password, auth);
+    return signInWithEmailAndPassword(auth, email, password)
   };
 
   const googleSignIn = () => {
-    return signInWithPopup(auth, provider);
+    return signInWithPopup(auth, provider)
   };
 
   const updateUserProfile = (name, photoUrl) => {
-    return updateUserProfile(auth.currentUser, {
-      displayName: name,
-      photoUrl: photoUrl,
-    });
-  };
+    return updateProfile(auth.currentUser, {displayName: name, photoURL: photoUrl})
+}
 
   const AuthInfo = {
     user,

@@ -1,22 +1,42 @@
 import { Form, Link } from "react-router-dom";
 import login from "../../assets/lofin.jpg";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+import { toast } from "react-hot-toast";
+
 
 const Login = () => {
+const {logIn} = useContext(AuthContext);
 
-const handleLogIn = (event) =>{
+  const handleLogIn = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-    
-}
+
+    logIn(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        toast.success("LogIn successful!")
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+        toast.error(errorMessage)
+      });
+  };
 
   return (
     <div className="flex justify-center items-center">
       <img className="w-4/12 m-0" src={login} alt="" />
       <div>
-        <Form onSubmit={handleLogIn} className="card w-96 bg-slate-200 shadow-xl items-center text-center py-8 rounded-lg">
+        <Form
+          onSubmit={handleLogIn}
+          className="card w-96 bg-slate-200 shadow-xl items-center text-center py-8 rounded-lg"
+        >
           <h1 className="text-2xl font-bold">LogIn</h1>
           <div className="py-6 w-full">
             <input

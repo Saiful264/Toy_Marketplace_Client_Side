@@ -1,18 +1,17 @@
-import { toast } from 'react-hot-toast';
-
+import { toast } from "react-hot-toast";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
-
-    const handleClick = () => {
-        toast.success('Action successful!');
-      };
+  const handleClick = () => {
+    toast.success("Action successful!");
+  };
 
   return (
     <div>
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+            <label tabIndex={0} className="lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -33,74 +32,107 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Item 1</a>
+                <NavLink
+                  to=""
+                  className={({ isActive }) =>
+                    isActive ? "btn btn-info" : "default"
+                  }
+                >
+                  Home
+                </NavLink>
               </li>
-              <li tabIndex={0}>
-                <a className="justify-between">
-                  Parent
-                  <svg
-                    className="fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                  </svg>
-                </a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
+
+              <li>
+                <NavLink
+                  to="/blog">
+                  My Toys
+                </NavLink>
               </li>
               <li>
-                <a>Item 3</a>
+                <NavLink
+                  to="/blog"
+                >
+                  Add A Toy
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/blog"
+                >
+                  Blogs
+                </NavLink>
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <a className="normal-case text-xl">daisyUI</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="flex gap-4 font-semibold text-lg">
             <li>
-              <a>Item 1</a>
+              <NavLink
+                to="/"
+                className={({ isActive }) => (isActive ? "active" : "default")}
+              >
+                Home
+              </NavLink>
             </li>
-            <li tabIndex={0}>
-              <a>
-                Parent
-                <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
+            <li>
+              <div className="dropdown dropdown-hover">
+                <label className="default" tabIndex={0}>
+                  All Toys
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
-                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                </svg>
-              </a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
+                  <li>
+                    <Link className="default">Item 1</Link>
+                  </li>
+                  <li>
+                    <Link class>Item 2</Link>
+                  </li>
+                </ul>
+              </div>
             </li>
             <li>
-              <a>Item 3</a>
+              <NavLink
+                to="/blog"
+                className={({ isActive }) => (isActive ? "active" : "default")}
+              >
+                My Toys
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/blog"
+                className={({ isActive }) => (isActive ? "active" : "default")}
+              >
+                Add A Toy
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/blog"
+                className={({ isActive }) => (isActive ? "active" : "default")}
+              >
+                Blogs
+              </NavLink>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Get started</a>
+          <Link to="/login" className="btn btn-info">Login</Link>
+          {/* <div className="avatar">
+            <div className="w-6 rounded-full">
+              <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+            </div>
+          </div>
+          <button className="pr-2 pl-2">log Out</button> */}
         </div>
       </div>
-      <button className="btn btn-info" onClick={handleClick}>Do something</button>
+      <button className="btn btn-info" onClick={handleClick}>
+        Do something
+      </button>
     </div>
   );
 };

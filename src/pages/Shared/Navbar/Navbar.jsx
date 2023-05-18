@@ -1,10 +1,14 @@
-import { toast } from "react-hot-toast";
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const Navbar = () => {
-  const handleClick = () => {
-    toast.success("Action successful!");
-  };
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () =>{
+    logOut().then(toast.success("Log Out successful!")).catch()
+  }
 
   return (
     <div>
@@ -43,24 +47,13 @@ const Navbar = () => {
               </li>
 
               <li>
-                <NavLink
-                  to="/blog">
-                  My Toys
-                </NavLink>
+                <NavLink to="/blog">My Toys</NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/blog"
-                >
-                  Add A Toy
-                </NavLink>
+                <NavLink to="/blog">Add A Toy</NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/blog"
-                >
-                  Blogs
-                </NavLink>
+                <NavLink to="/blog">Blogs</NavLink>
               </li>
             </ul>
           </div>
@@ -121,18 +114,22 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login" className="btn btn-info">Login</Link>
-          {/* <div className="avatar">
-            <div className="w-6 rounded-full">
-              <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          {user ? (
+            <div className="flex items-center gap-3">
+              <div className="avatar">
+                <div className="w-6 rounded-full">
+                  <img src={user?.photoURL}/>
+                </div>
+              </div>
+              <button onClick={handleLogOut} className="btn btn-info">log Out</button>
             </div>
-          </div>
-          <button className="pr-2 pl-2">log Out</button> */}
+          ) : (
+            <Link to="/login" className="btn btn-info">
+              Login
+            </Link>
+          )}
         </div>
       </div>
-      <button className="btn btn-info" onClick={handleClick}>
-        Do something
-      </button>
     </div>
   );
 };

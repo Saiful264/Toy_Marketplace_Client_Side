@@ -3,9 +3,10 @@ import reg from "../../assets/signup.jpg";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-hot-toast";
+import { FaGoogle,FaGithub } from "react-icons/fa";
 
 const Register = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, googleSignIn } = useContext(AuthContext);
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -36,7 +37,7 @@ const Register = () => {
           .catch((error) => {
             const errormessage = error.message;
             console.log(errormessage);
-            toast.error(errorMessage);
+            toast.error(errormessage);
           });
       })
       .catch((error) => {
@@ -46,6 +47,15 @@ const Register = () => {
         toast.error(errorMessage);
       });
   };
+
+
+  const handleGoogleLogIn = () =>{
+    googleSignIn().then(toast.success("LogIn successful!"))
+    .catch(error => toast.error(error.message))
+  }
+
+
+
   return (
     <div className="flex justify-center items-center">
       <div>
@@ -96,6 +106,14 @@ const Register = () => {
           </p>
           <button type="submit" className="btns-primary">
             Register
+          </button>
+          <div className="py-4">
+            <button onClick={handleGoogleLogIn} className="text-base flex items-center gap-3 font-semibold btns-primary">
+              <span><FaGoogle /></span> Continue with google
+            </button>
+          </div>
+          <button className="text-base flex items-center gap-3 font-semibold btns-primary">
+            <span><FaGithub /></span> Continue with github
           </button>
         </Form>
       </div>

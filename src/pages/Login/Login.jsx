@@ -3,10 +3,11 @@ import login from "../../assets/lofin.jpg";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-hot-toast";
+import { FaGoogle,FaGithub } from "react-icons/fa";
 
 
 const Login = () => {
-const {logIn} = useContext(AuthContext);
+const {logIn,googleSignIn} = useContext(AuthContext);
 
   const handleLogIn = (event) => {
     event.preventDefault();
@@ -27,7 +28,13 @@ const {logIn} = useContext(AuthContext);
         console.log(errorCode, errorMessage);
         toast.error(errorMessage)
       });
-  };
+    };
+    
+    const handleGoogleLogIn = () =>{
+      googleSignIn().then(toast.success("LogIn successful!"))
+      .catch(error => toast.error(error.message))
+    }
+
 
   return (
     <div className="flex justify-center items-center">
@@ -67,12 +74,12 @@ const {logIn} = useContext(AuthContext);
             LogIn
           </button>
           <div className="py-4">
-            <button className="text-base flex items-center gap-3 font-semibold btns-primary">
-              <span>{/* <FaGoogle /> */}</span> Continue with google
+            <button onClick={handleGoogleLogIn} className="text-base flex items-center gap-3 font-semibold btns-primary">
+              <span><FaGoogle /></span> Continue with google
             </button>
           </div>
           <button className="text-base flex items-center gap-3 font-semibold btns-primary">
-            <span>{/* <FaGithub /> */}</span> Continue with github
+            <span><FaGithub /></span> Continue with github
           </button>
         </Form>
       </div>

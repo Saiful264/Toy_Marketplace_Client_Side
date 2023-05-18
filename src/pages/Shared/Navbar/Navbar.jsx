@@ -100,7 +100,7 @@ const Navbar = () => {
           <a className="btn">Get started</a>
         </div>
       </div>
-      <button onClick={handleClick}>Do something</button>
+      <button className="btn btn-info" onClick={handleClick}>Do something</button>
     </div>
   );
 };

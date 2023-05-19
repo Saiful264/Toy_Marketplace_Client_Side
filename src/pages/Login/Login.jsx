@@ -1,5 +1,5 @@
 import { Form, Link } from "react-router-dom";
-import login from "../../assets/lofin.jpg";
+import login from "../../assets/login.jpg";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-hot-toast";

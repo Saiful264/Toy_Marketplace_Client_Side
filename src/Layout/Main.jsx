@@ -3,13 +3,15 @@ import Navbar from "../pages/Shared/Navbar/Navbar";
 import Footer from "../pages/Shared/Footer/Footer";
 
 const Main = () => {
-    return (
-        <div>
-            <Navbar/>
-            <Outlet/>
-            <Footer/>
-        </div>
-    );
+  return (
+    <>
+      <Navbar />
+      <div className="md:min-h-[calc(100vh-341px)]">
+        <Outlet />
+      </div>
+      <Footer />
+    </>
+  );
 };
 
 export default Main;

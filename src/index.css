@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 .active{
-    @apply font-medium tracking-wide text-cyan-600 transition-colors duration-200
+    @apply font-medium tracking-wide text-pink-400 transition-colors duration-200
   }
   
   .default{
-    @apply font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-cyan-500
+    @apply font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-pink-400
   }

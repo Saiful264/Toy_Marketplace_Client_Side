@@ -1,14 +1,15 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import logo from "../../../assets/002-lightbulb.png";
 import { toast } from "react-hot-toast";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
-  const handleLogOut = () =>{
-    logOut().then(toast.success("Log Out successful!")).catch()
-  }
+  const handleLogOut = () => {
+    logOut().then(toast.success("Log Out successful!")).catch();
+  };
 
   return (
     <div>
@@ -57,7 +58,12 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="normal-case text-xl">daisyUI</a>
+          <Link className="normal-case text-xl flex items-center gap-1">
+            <div className="bg-pink-400 p-3 rounded-full">
+              <img className="w-7" src={logo} alt="" />
+            </div>
+            <span className="text-4xl text-slate-700 font-mono font-bold">Learn<span className="text-yellow-400">IQ</span></span>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="flex gap-4 font-semibold text-lg">
@@ -87,22 +93,30 @@ const Navbar = () => {
                 </ul>
               </div>
             </li>
-            {user && <li>
-              <NavLink
-                to="/blog"
-                className={({ isActive }) => (isActive ? "active" : "default")}
-              >
-                My Toys
-              </NavLink>
-            </li>}
-            {user && <li>
-              <NavLink
-                to="/blog"
-                className={({ isActive }) => (isActive ? "active" : "default")}
-              >
-                Add A Toy
-              </NavLink>
-            </li>}
+            {user && (
+              <li>
+                <NavLink
+                  to="/blog"
+                  className={({ isActive }) =>
+                    isActive ? "active" : "default"
+                  }
+                >
+                  My Toys
+                </NavLink>
+              </li>
+            )}
+            {user && (
+              <li>
+                <NavLink
+                  to="/blog"
+                  className={({ isActive }) =>
+                    isActive ? "active" : "default"
+                  }
+                >
+                  Add A Toy
+                </NavLink>
+              </li>
+            )}
             <li>
               <NavLink
                 to="/blog"
@@ -118,10 +132,12 @@ const Navbar = () => {
             <div className="flex items-center gap-3">
               <div className="avatar">
                 <div className="w-6 rounded-full">
-                  <img src={user?.photoURL}/>
+                  <img src={user?.photoURL} />
                 </div>
               </div>
-              <button onClick={handleLogOut} className="btn btn-info">log Out</button>
+              <button onClick={handleLogOut} className="btn btn-info">
+                log Out
+              </button>
             </div>
           ) : (
             <Link to="/login" className="btn btn-info">

@@ -85,27 +85,25 @@ const Navbar = () => {
                   All Toys
                 </NavLink>
               </li>
+            <li>
+                <NavLink
+                  to="/addtoy"
+                  className={({ isActive }) =>
+                    isActive ? "active" : "default"
+                  }
+                >
+                  Add Toy
+                </NavLink>
+              </li>
             {user && (
               <li>
                 <NavLink
-                  to="/blog"
+                  to="/mytoys"
                   className={({ isActive }) =>
                     isActive ? "active" : "default"
                   }
                 >
                   My Toys
-                </NavLink>
-              </li>
-            )}
-            {user && (
-              <li>
-                <NavLink
-                  to="/blog"
-                  className={({ isActive }) =>
-                    isActive ? "active" : "default"
-                  }
-                >
-                  Add A Toy
                 </NavLink>
               </li>
             )}

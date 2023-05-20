@@ -31,7 +31,7 @@ const AllToys = () => {
         <td>Littel, Schaden and Vandervort</td> 
         <td>$<span>30</span></td> 
         <td>120</td> 
-        <td><button className="btn btn-secondary">Button</button></td>
+        <td><button className="btn btn-secondary">View Details</button></td>
       </tr>
     </tbody> 
   </table>

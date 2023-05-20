@@ -6,9 +6,9 @@ const Main = () => {
   return (
     <>
       <Navbar />
-      <div className="md:min-h-[calc(100vh-341px)]">
+      {/* <div className="md:min-h-[calc(100vh-341px)]"> */}
         <Outlet />
-      </div>
+      {/* </div> */}
       <Footer />
     </>
   );

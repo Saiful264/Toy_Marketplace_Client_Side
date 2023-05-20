@@ -5,7 +5,7 @@ import { FaFacebookF, FaInstagram,  FaLinkedinIn, FaYoutube } from "react-icons/
 const Footer = () => {
   return (
     <div>
-      <footer className="footer p-10 bg-base-200 text-base-content">
+      <footer className="footer p-10 bg-base-200 text-base-content rounded-t-xl">
         <div>
           <Link className="normal-case text-xl flex items-center gap-1">
             <div className="bg-pink-400 p-3 rounded-full">
@@ -60,7 +60,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <footer className="footer footer-center p-4 bg-base-300 text-base-content">
+      <footer className="footer footer-center p-4 bg-base-300 text-base-content rounded-b-xl">
         <div>
           <p>Copyright © 2023 - All right reserved by Learn IQ Industries Ltd.</p>
         </div>

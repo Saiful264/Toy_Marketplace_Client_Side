@@ -7,7 +7,7 @@ import gallery6 from "../../../assets/gallery/gallery6.jpg"
 
 const Gallery = () => {
     return (
-        <div className="">
+        <div className="pb-6">
             <h1 className="text-center font-bold text-2xl lg:text-4xl italic">Learning is where we play</h1>
             {/* <p className="text-center">Gallery</p> */}
             <div className="grid grid-cols-3 gap-4 justify-items-center pt-7 px-4 lg:px-0">

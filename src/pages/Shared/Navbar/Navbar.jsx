@@ -125,7 +125,7 @@ const Navbar = () => {
                   <img src={user?.photoURL} />
                 </div>
               </div>
-              <button onClick={handleLogOut} className="btn btn-info">
+              <button onClick={handleLogOut} className="btn bg-pink-600">
                 log Out
               </button>
             </div>

@@ -76,23 +76,15 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <div className="dropdown dropdown-hover">
-                <label className="default" tabIndex={0}>
-                  All Toys
-                </label>
-                <ul
-                  tabIndex={0}
-                  className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                <NavLink
+                  to="/alltoys"
+                  className={({ isActive }) =>
+                    isActive ? "active" : "default"
+                  }
                 >
-                  <li>
-                    <Link className="default">Item 1</Link>
-                  </li>
-                  <li>
-                    <Link class>Item 2</Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
+                  All Toys
+                </NavLink>
+              </li>
             {user && (
               <li>
                 <NavLink

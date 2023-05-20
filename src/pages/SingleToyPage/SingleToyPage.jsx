@@ -6,7 +6,7 @@ const SingleToyPage = () => {
   return (
     <div>
       <div className="hero-content flex-col lg:flex-row">
-        <img src={img} className="max-w-xl rounded-lg" />
+        <img src={img} className=" lg:max-w-xl rounded-lg" />
         <div>
           <h1 className="text-2xl font-bold capitalize ">
             <span className="font-extrabold">Toy Name : </span>Learn and Play Math

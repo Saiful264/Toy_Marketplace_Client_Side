@@ -1,4 +1,9 @@
+import { useLoaderData } from "react-router-dom";
+import AllToysRow from "./AllToysRow";
+
 const AllToys = () => {
+  const toys = useLoaderData();
+
   return (
     <div className="pt-4">
       <div className="text-center">
@@ -10,32 +15,28 @@ const AllToys = () => {
         />
       </div>
       <div>
-      <div className="overflow-x-auto">
-  <table className="table table-compact w-full">
-    <thead>
-      <tr>
-        <th></th> 
-        <th>Toy Name</th> 
-        <th>Seller Name</th> 
-        <th>Sub-category</th> 
-        <th>Price</th> 
-        <th>Available <br /> Quantity</th> 
-        <th></th>
-      </tr>
-    </thead> 
-    <tbody>
-      <tr>
-        <th>1</th> 
-        <td>Cy Ganderton</td> 
-        <td>Quality Control Specialist</td> 
-        <td>Littel, Schaden and Vandervort</td> 
-        <td>$<span>30</span></td> 
-        <td>120</td> 
-        <td><button className="btn btn-secondary">View Details</button></td>
-      </tr>
-    </tbody> 
-  </table>
-</div>
+        <div className="overflow-x-auto">
+          <table className="table table-compact w-full">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Toy Name</th>
+                <th>Seller Name</th>
+                <th>Sub-category</th>
+                <th>Price</th>
+                <th>
+                  Available <br /> Quantity
+                </th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {toys.map((toy, i) => (
+                <AllToysRow key={toy._id} toy={toy} i={i} />
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

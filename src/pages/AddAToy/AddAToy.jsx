@@ -89,7 +89,7 @@ const AddAToy = () => {
           <input
             className="btn btn-primary btn-block"
             type="submit"
-            value="Order Confirm"
+            value="Add Toy"
           />
         </div>
       </form>

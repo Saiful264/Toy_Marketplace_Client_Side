@@ -1,8 +1,11 @@
 import Rating from "react-rating";
 import img from "../../assets/banner/12145631_Wavy_Edu-07_Single-02.jpg";
 import { FaRegStar, FaStar } from "react-icons/fa";
+import { useLoaderData } from "react-router-dom";
 
 const SingleToyPage = () => {
+  const data = useLoaderData();
+  console.log(data);
   return (
     <div>
       <div className="hero-content flex-col lg:flex-row">

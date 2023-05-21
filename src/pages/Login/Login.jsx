@@ -37,7 +37,7 @@ const {logIn,googleSignIn} = useContext(AuthContext);
 
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center my-8">
       <img className="w-4/12 m-0" src={login} alt="" />
       <div>
         <Form

@@ -13,7 +13,7 @@ const Banner = () => {
           Possibilities Through Engaging Play.Unlock the Path to Learning
           Success
         </p>
-        <button className="btn btn-secondary ml-2">Explore More</button>
+        <button className="btns-primary ml-2">Explore More</button>
       </div>
       <img className="lg:w-2/5" src={bannerImg} alt="" />
     </div>

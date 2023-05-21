@@ -85,6 +85,7 @@ const Navbar = () => {
                   All Toys
                 </NavLink>
               </li>
+            {user && (
             <li>
                 <NavLink
                   to="/addtoy"
@@ -94,7 +95,7 @@ const Navbar = () => {
                 >
                   Add Toy
                 </NavLink>
-              </li>
+              </li>)}
             {user && (
               <li>
                 <NavLink
@@ -125,12 +126,12 @@ const Navbar = () => {
                   <img src={user?.photoURL} />
                 </div>
               </div>
-              <button onClick={handleLogOut} className="btn bg-pink-600">
+              <button onClick={handleLogOut} className="btns-primary">
                 log Out
               </button>
             </div>
           ) : (
-            <Link to="/login" className="btn btn-info">
+            <Link to="/login" className="btns-primary">
               Login
             </Link>
           )}

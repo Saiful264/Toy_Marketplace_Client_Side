@@ -1,8 +1,8 @@
-import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const MyTouRow = ({ myToy,handlerdelete }) => {
+  // eslint-disable-next-line react/prop-types
   const { name, pictureUrl, price, _id, detailDescription, rating,availableQuantity } = myToy;
 
 

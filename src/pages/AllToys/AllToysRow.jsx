@@ -1,18 +1,8 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const AllToysRow = ({ toy, i }) => {
-  //     const {
-  //     name,
-  //     pictureUrl,
-  //     price,
-  //     rating,
-  //     sellerEmail,
-  //     sellerName,
-  //     subCategory,
-  //     detailDescription,
-  //     availableQuantity,
-  //   } = toy;
   return (
     <tr>
       <th>{i+1}</th>

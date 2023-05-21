@@ -1,13 +1,15 @@
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../../assets/login.jpg";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-hot-toast";
-import { FaGoogle,FaGithub } from "react-icons/fa";
-
+import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Login = () => {
-const {logIn,googleSignIn} = useContext(AuthContext);
+  const { logIn, googleSignIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogIn = (event) => {
     event.preventDefault();
@@ -20,21 +22,25 @@ const {logIn,googleSignIn} = useContext(AuthContext);
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
-        toast.success("LogIn successful!")
+        toast.success("LogIn successful!");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-        toast.error(errorMessage)
+        // console.log(errorCode, errorMessage);
+        toast.error(errorMessage, errorCode);
       });
-    };
-    
-    const handleGoogleLogIn = () =>{
-      googleSignIn().then(toast.success("LogIn successful!"))
-      .catch(error => toast.error(error.message))
-    }
+  };
 
+  const handleGoogleLogIn = () => {
+    googleSignIn()
+      .then(() => {
+        toast.success("LogIn successful!");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => toast.error(error.message));
+  };
 
   return (
     <div className="flex justify-center items-center my-8">
@@ -74,12 +80,21 @@ const {logIn,googleSignIn} = useContext(AuthContext);
             LogIn
           </button>
           <div className="py-4">
-            <button onClick={handleGoogleLogIn} className="text-base flex items-center gap-3 font-semibold btns-primary">
-              <span><FaGoogle /></span> Continue with google
+            <button
+              onClick={handleGoogleLogIn}
+              className="text-base flex items-center gap-3 font-semibold btns-primary"
+            >
+              <span>
+                <FaGoogle />
+              </span>{" "}
+              Continue with google
             </button>
           </div>
           <button className="text-base flex items-center gap-3 font-semibold btns-primary">
-            <span><FaGithub /></span> Continue with github
+            <span>
+              <FaGithub />
+            </span>{" "}
+            Continue with github
           </button>
         </Form>
       </div>

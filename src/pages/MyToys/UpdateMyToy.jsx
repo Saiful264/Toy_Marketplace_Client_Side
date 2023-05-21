@@ -11,7 +11,7 @@ const UpdateMyToy = () => {
     const description = form.description.value;
     const availableQuantity = form.availableQuantity.value;
 
-    fetch(`http://localhost:5000/update/${id}`, {
+    fetch(`https://toy-marketplace-client-side.vercel.app/update/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

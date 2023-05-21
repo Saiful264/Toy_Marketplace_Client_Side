@@ -24,7 +24,7 @@ const ShopByCategory = () => {
         </TabList>
     {/* 1 */}
         <TabPanel>
-          <div className="flex justify-around pt-4">
+          <div className="lg:flex justify-around pt-4">
             <div className="card w-96 bg-base-100 shadow-xl">
               <figure>
                 <img src={img3} alt="Shoes" />
@@ -77,7 +77,7 @@ const ShopByCategory = () => {
         </TabPanel>
         {/* 2 */}
         <TabPanel>
-          <div className="flex justify-around">
+          <div className="lg:flex justify-around">
             <div className="card w-96 bg-base-100 shadow-xl">
               <figure>
                 <img src={img5} alt="Shoes" />
@@ -130,7 +130,7 @@ const ShopByCategory = () => {
         </TabPanel>
         {/* 3 */}
         <TabPanel>
-          <div className="flex justify-around">
+          <div className="lg:flex justify-around">
             <div className="card w-96 bg-base-100 shadow-xl">
               <figure>
                 <img src={img6} alt="Shoes" />

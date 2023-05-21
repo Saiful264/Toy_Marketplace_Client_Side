@@ -22,15 +22,15 @@ const OurBlog = () => {
         </div>
         <div className="text-center">
           <img className="w-4/6 mx-auto lg:w-full rounded-md" src={math} alt="" />
-          <p className="text-2xl pt-2 font-bold mx-auto">Math</p>
+          <p className="text-2xl pt-2 font-bold mx-auto">Reading</p>
         </div>
         <div className="text-center">
           <img className="w-4/6 mx-auto lg:w-full rounded-md" src={math} alt="" />
-          <p className="text-2xl pt-2 font-bold mx-auto">Math</p>
+          <p className="text-2xl pt-2 font-bold mx-auto">STAM</p>
         </div>
         <div className="text-center">
           <img className="w-4/6 mx-auto lg:w-full rounded-md" src={math} alt="" />
-          <p className="text-2xl pt-2 font-bold mx-auto">Math</p>
+          <p className="text-2xl pt-2 font-bold mx-auto">Motor Skills</p>
         </div>
       </div>
     </div>

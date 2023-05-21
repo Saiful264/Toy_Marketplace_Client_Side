@@ -1,10 +1,11 @@
 ## Live Link
 
-Hosted in firebase -> [Chef's Recipe](https://splendid-meerkat-8eba7c.netlify.app/)
+Hosted in firebase -> [toy-marketplace](https://toy-marketplace-5f4cf.web.app/)
 
 ## 5 key point about My Project
     
-  * This project about all the defirent type of cuisine in world. Show case all those chef make it and share it.
-  * This web site for all the people they try new recips.
-  * All the chef's who will to share there recipes in the internet.
-  * Try out the cuisine all over the world. Have fun try out those reciprs.
+  * My project about the kid learn by playing. Now parents are going to not about playin kid they also learning.
+  * There are different categories of toy for kid explor.
+  * In research found those pepole learn more whene they learn by playing.
+  * Playing is not a bad thing. where handle it smartly. kid are learning and they are happy.
+  * Parents don't not worried about the most beautiful moments in life comes after going through hardships and challenges.

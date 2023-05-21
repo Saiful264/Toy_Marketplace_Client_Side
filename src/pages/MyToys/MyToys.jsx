@@ -7,7 +7,7 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
 
-  const url = `http://localhost:5000/toys?email=${user?.email}`;
+  const url = `https://toy-marketplace-client-side.vercel.app/toys?email=${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -16,7 +16,7 @@ const MyToys = () => {
 
 
   const handlerdelete = id =>{
-    fetch(`http://localhost:5000/delete/${id}`, {
+    fetch(`https://toy-marketplace-client-side.vercel.app/delete/${id}`, {
         method: "DELETE",
         headers: {
             "content-type": "application/json",

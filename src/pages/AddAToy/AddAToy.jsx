@@ -33,7 +33,7 @@ const AddAToy = () => {
 
     console.log(toyInfo);
 
-    fetch(`http://localhost:5000/insert`, {
+    fetch(`https://toy-marketplace-client-side.vercel.app/insert`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

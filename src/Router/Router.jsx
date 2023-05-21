@@ -45,8 +45,9 @@ const router = createBrowserRouter([
           element: <MyToys/>
         },
         {
-          path: "/updateMyToy",
-          element: <UpdateMyToy/>
+          path: "/updateMyToy/:id",
+          element: <UpdateMyToy/>,
+          loader: ({params}) => params.id
         },
         {
           path: "/blog",

@@ -1,4 +1,5 @@
 import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const MyTouRow = ({ myToy,handlerdelete }) => {
@@ -30,9 +31,9 @@ const MyTouRow = ({ myToy,handlerdelete }) => {
           </div>
         </div>
       </td>
-      <td className="font-bold">{detailDescription}</td>
+      <td className="font-bold"><p className="limited-length">{detailDescription}</p></td>
       <td className="text-center">
-        <button className="btn bg-pink-600">Update</button>
+        <Link to={`/updateMyToy/${_id}`} className="btn bg-pink-600">Update</Link>
       </td>
       <th className="text-center">
         <button onClick={()=> handlerdelete(_id)} className="btn bg-pink-600">delete</button>

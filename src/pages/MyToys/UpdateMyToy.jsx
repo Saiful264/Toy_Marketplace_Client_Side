@@ -1,31 +1,49 @@
+import { toast } from "react-hot-toast";
+import { useLoaderData } from "react-router-dom";
 
 const UpdateMyToy = () => {
+  const id = useLoaderData();
+  
     const handlerUpdateToyData = event =>{
       event.preventDefault();
       const form = event.target;
-      const toyName = form.name.value;
-      const sellerName = form.sellerName.value;
-      const sellerEmail = form.sellerEmail.value;
-      const subCategory = form.subCategory.value;
       const price = form.price.value;
-      const rating = form.rating.value;
       const availableQuantity = form.availableQuantity.value;
       const description = form.description.value;
-      const photoUrl = form.photoUrl.value;
-  
+     
       const toyInfo = {
-        pictureUrl: photoUrl,
-        name: toyName,
-        sellerName: sellerName,
-        sellerEmail: sellerEmail,
-        subCategory: subCategory,
         price: price,
-        rating:rating,
         availableQuantity:availableQuantity,
         detailDescription:description,
       };
   
       console.log(toyInfo);
+
+      fetch(`http://localhost:5000/update/${id}`, {
+        method: "PATCH",
+       headers: {
+        "content-type": "application/json"
+       },
+        body: JSON.stringify({
+          price: price,
+          availableQuantity:availableQuantity,
+          detailDescription:description,
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+            toast.error("Update unsuccessfully")
+        }else{
+          toast.success("Update successfully")
+          form.reset();
+        }
+    })
+
+
+
+
     }
 
     return (
@@ -38,44 +56,9 @@ const UpdateMyToy = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Toy Name</span>
-            </label>
-            <input type="text" name="name" className="input input-bordered" placeholder="Toy Name"/>
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Seller Name</span>
-            </label>
-            <input type="text" name="sellerName" className="input input-bordered" placeholder="Seller Name"/>
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Seller Email</span>
-            </label>
-            <input
-              type="email"
-              name="sellerEmail"
-              placeholder="Seller Email"
-              className="input input-bordered"
-            />
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Sub-category</span>
-            </label>
-            <input type="text" name="subCategory" className="input input-bordered" placeholder="Sub-category"/>
-          </div>
-          <div className="form-control">
-            <label className="label">
               <span className="label-text">Price</span>
             </label>
             <input type="number" name="price" className="input input-bordered" placeholder="Price"/>
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Rating</span>
-            </label>
-            <input type="text" name="rating" className="input input-bordered" placeholder="Rating"/>
           </div>
           <div className="form-control">
             <label className="label">
@@ -88,18 +71,18 @@ const UpdateMyToy = () => {
               className="input input-bordered"
             />
           </div>
-          <div className="form-control">
+        </div>
+        <div className="form-control">
             <label className="label">
               <span className="label-text">Detail description</span>
             </label>
             <textarea type="text" name="description" className="input input-bordered" placeholder="Detail description"/>
           </div>
-        </div>
         <div className="form-control pb-5 mt-6">
           <input
             className="btn btn-secondary btn-block"
             type="submit"
-            value="Order Confirm"
+            value="Updata Toy"
           />
         </div>
       </form>

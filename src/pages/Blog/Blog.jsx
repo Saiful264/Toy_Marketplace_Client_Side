@@ -26,7 +26,7 @@ const Blog = () => {
                 can store the tokens as HTTP-only cookies, which can only be
                 accessed by the server and are not exposed to client-side
                 JavaScript or browser local store where it can be exposed to
-                client-side JavaScript. HTTP-only cookies is more secure then
+                client-side JavaScript. HTTP-onpmrun bnly cookies is more secure then
                 browser local store
               </td>
             </tr>

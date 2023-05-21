@@ -1,6 +1,6 @@
+/* eslint-disable react/prop-types */
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
-import img from "../../assets/banner/12145631_Wavy_Edu-07_Single-02.jpg"
 
 const SingleToy = ({singleToy}) => {
       const {
@@ -10,7 +10,6 @@ const SingleToy = ({singleToy}) => {
       rating,
       sellerEmail,
       sellerName,
-      subCategory,
       detailDescription,
       availableQuantity,
     } = singleToy;

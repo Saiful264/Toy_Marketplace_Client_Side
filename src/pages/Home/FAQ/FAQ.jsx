@@ -1,4 +1,8 @@
 import faq from "../../../assets/faq.jpg"
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const FAQ = () => {
   return (
@@ -7,7 +11,7 @@ const FAQ = () => {
         Frequently Asked Question
       </h1>
       <div className="py-8">
-        <div className="card lg:card-side bg-base-100">
+        <div data-aos="fade-right" className="card lg:card-side bg-base-100">
             <img className="lg:w-1/2"
               src={faq}
               alt="Album"

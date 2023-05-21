@@ -1,7 +1,11 @@
 import math from "../../../assets/gallery/gallery5.jpg";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 const OurBlog = () => {
   return (
-    <div>
+    <div data-aos="zoom-in">
       <h1 className="text-center font-bold text-2xl lg:text-4xl italic">
         Our Blog
       </h1>
@@ -28,7 +32,6 @@ const OurBlog = () => {
           <img className="w-4/6 mx-auto lg:w-full rounded-md" src={math} alt="" />
           <p className="text-2xl pt-2 font-bold mx-auto">Math</p>
         </div>
-        s
       </div>
     </div>
   );

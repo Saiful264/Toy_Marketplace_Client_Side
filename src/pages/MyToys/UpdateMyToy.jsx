@@ -1,20 +1,31 @@
 
 const UpdateMyToy = () => {
     const handlerUpdateToyData = event =>{
-        event.preventDefault();
-        const form = event.target;
-        const toyName = form.name.value;
-        const sellerName = form.sellerName.value;
-        const sellerEmail = form.sellerEmail.value;
-        const subCategory = form.subCategory.value;
-        const price = form.price.value;
-        const rating = form.rating.value;
-        const availableQuantity = form.availableQuantity.value;
-        const description = form.description.value;
-        
-        const toyInfo = {toyName,sellerName,sellerEmail,subCategory, price,rating,availableQuantity,description}
-
-        console.log(toyInfo);
+      event.preventDefault();
+      const form = event.target;
+      const toyName = form.name.value;
+      const sellerName = form.sellerName.value;
+      const sellerEmail = form.sellerEmail.value;
+      const subCategory = form.subCategory.value;
+      const price = form.price.value;
+      const rating = form.rating.value;
+      const availableQuantity = form.availableQuantity.value;
+      const description = form.description.value;
+      const photoUrl = form.photoUrl.value;
+  
+      const toyInfo = {
+        pictureUrl: photoUrl,
+        name: toyName,
+        sellerName: sellerName,
+        sellerEmail: sellerEmail,
+        subCategory: subCategory,
+        price: price,
+        rating:rating,
+        availableQuantity:availableQuantity,
+        detailDescription:description,
+      };
+  
+      console.log(toyInfo);
     }
 
     return (

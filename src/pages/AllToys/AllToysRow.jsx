@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const AllToysRow = ({ toy, i }) => {
-  console.log(toy);
   //     const {
   //     name,
   //     pictureUrl,

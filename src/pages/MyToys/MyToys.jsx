@@ -1,4 +1,7 @@
+import { useLoaderData } from "react-router-dom";
+
 const MyToys = () => {
+  const {data} = useLoaderData();
   return (
     <div>
       <h2 className="text-center underline font-bold text-2xl lg:text-4xl italic py-6">
